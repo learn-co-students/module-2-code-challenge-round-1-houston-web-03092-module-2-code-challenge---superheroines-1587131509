@@ -1,0 +1,7 @@
+<%= @power.name %><br>
+<%= @power.description %><br>
+<ul>
+<% @power.heroines.each do |heroine| %>
+<li><%= link_to(heroine.name, heroine) %><li>
+<%end%>
+</ul>

@@ -1,0 +1,6 @@
+<%= form_with model: @heroine do |f| %><br>
+<%= f.text_field(:name) %><br>
+<%= f.text_field(:super_name) %><br>
+<%= f.collection_select(:power, @powers, :id, :name)%><br>
+<%= f.submit%>
+<%end%>
