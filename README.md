@@ -15,13 +15,13 @@ In this repo, there is a Rails application with some features built out. Your jo
 
 ## Setup
 
-Before you begin coding your solution, clone this repo and then `cd` into it. Then run `bundle install`, `rails db:migrate`, and `rails db:seed` to install dependencies and set up the database, and run `rails s` to start the server.
+Before you begin coding your solution, clone this repo and then `cd` into it. Then run `bundle install` to install dependencies.
 
 ## Domain
 
-There are three models in the domain: Power, Heroine, and a join model HeroinePower.
+There are two models in the domain: Power, and Heroine.
 
-Each Heroine can have multiple powers. Powers can belong to multiple Heroines.
+Each Heroine may only be gifted with ONE power. Powers can be shared by multiple Heroines.
 
 ## What You Already Have
 
@@ -55,36 +55,15 @@ Update the code of the application to meet the following deliverables. Follow RE
 
 ***Read through these deliverables carefully to understand the requirements for this code challenge. Tackle them one by one, as they build on each other sequentially.***
 
-### 1. Heroine-Power association
+### 1. Association
 
-Create the association between the models. Update the schema and models to create the HeroinePower association.
+Create the association between the models. Update the schema, adding a foreign key where necessary to support the association.
 
-A HeroinePower should have a:
+Each Heroine may only be gifted with ONE power. Powers can be shared by multiple Heroines.
 
-- a heroine
-- a power
+Then run `rails db:migrate`, and `rails db:seed` to set up the database, and run `rails s` to start the server
 
-Each Heroine can have multiple powers. Powers can belong to multiple Heroines.
-
-### 2. Heroine index page links
-
-On the heroines index page, a heroine's super name should link to that heroine's show page.
-
-### 3. Heroine show page
-
-Each Heroine show page should include the:
-
-- name (eg. Kamala Khan)
-- super name (eg. Ms. Marvel)
-
-### 4. Power show page
-
-Power show page should include the:
-
-- name
-- description
-
-### 5. Heroine Create page
+### 2. Heroine Create page
 
 Show a form to create a new Heroine. It should have:
 
@@ -95,7 +74,23 @@ Show a form to create a new Heroine. It should have:
 
 After successfully creating a Heroine, the user should be redirected to the new Heroine's show page.
 
-### 6. Heroine Validations
+### 3. Heroine show page
+
+Each Heroine show page should include the:
+
+- name (eg. Kamala Khan)
+- super name (eg. Ms. Marvel)
+- the power of the heroine. It should link the power show page
+
+### 4. Power show page
+
+Power show page should include the:
+
+- name
+- description
+- a list of the heroines that have that power. It should link to the heroine show page
+
+### 6. Advanced: Heroine Validations
 
 Add validations to the Heroine model:
 
@@ -111,13 +106,8 @@ No two heroines should have the same super name.
 - Add a validation to prevent this.
 - Update the error handling in the create action to display this error
 
-### 8. Advanced: Display Heroines' Powers
 
-Update the Heroine show page to display the Powers that the heroine has.
-
-Each power should link to the corresponding Power show page.
-
-### 9. Advanced: Power Update Form to Link Multiple Heroines
+### 9. Advanced: Power Update Form
 
 Show a form to update a Power. It should have:
 
